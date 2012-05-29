@@ -1,33 +1,55 @@
-jQuery.fn.pulse = function( properties, duration, numTimes, interval) {  
-   
-   if (duration === undefined || duration < 0) duration = 500;
-   if (duration < 0) duration = 500;
+/*global jQuery*/
+/*jshint curly:false*/
 
-   if (numTimes === undefined) numTimes = 1;
-   if (numTimes < 0) numTimes = 0;
+;(function ( $, window, document, undefined ) {
+  "use strict";
 
-   if (interval === undefined || interval < 0) interval = 0;
+  var pluginName = 'pulse',
+    defaults = {
+      pulses   : 1,
+      interval : 0,
+      duration : 500
+    };
 
-   return this.each(function() {
-      var $this = jQuery(this);
-      var origProperties = {};
+  $.fn.pulse = function(properties, options, callback) {
+    options = $.extend({}, defaults, options);
+
+    if (!(options.interval >= 0)) options.interval = 0;
+    if (!(options.duration >= 0)) options.duration = 500;
+    if (!(options.pulses >= -1))   options.pulses = 1;
+
+    return this.each(function () {
+      var el = $(this),
+          property,
+          original = {}
+        ;
+
       for (property in properties) {
-         origProperties[property] = $this.css(property);
+        if (properties.hasOwnProperty(property)) original[property] = el.css(property);
       }
 
-      var subsequentTimeout = 0;
-      for (var i = 0; i < numTimes; i++) {
-         window.setTimeout(function() {
-            $this.animate(
-               properties,
-               {
-                  duration:duration / 2,
-                  complete:function(){
-                     $this.animate(origProperties, duration / 2)}
-               }
-            );
-         }, (duration + interval)* i);
+      var timesPulsed = 0;
+
+      function animate() {
+        if (options.pulses > -1 && ++timesPulsed > options.pulses) return;
+        el.animate(
+          properties,
+          {
+            duration : options.duration / 2,
+            complete : function(){
+              el.animate(original, {
+                duration : options.duration / 2,
+                complete : function() {
+                  window.setTimeout(animate, options.interval);
+                }
+              });
+            }
+          }
+        );
       }
-   });
-  
-};
+
+      animate();
+    });
+  };
+
+})( jQuery, window, document );
