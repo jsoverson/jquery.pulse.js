@@ -9,8 +9,6 @@ This is a very light amount of code and unless something drastic changes to the 
 it should be future proof for quite some time. It should be as cross browser compatible as jquery is and the
 examples on this page have been tested on multiple browsers, OSes, and devices.
 
-<a href="http://jarrodoverson.com/static/demos/jquery.pulse.html">Demo / Examples</a>
-=====================================================================================
+## [Demo / Examples](http://jarrodoverson.com/static/demos/jquery.pulse.html)
 
-
-<a href="http://www.github.com/jsoverson/jquery.pulse.js/LICENSE">LICENSE</a>
+## [LICENSE](https://github.com/jsoverson/jquery.pulse.js/blob/master/LICENSE)
