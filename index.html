@@ -1,114 +1,135 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>jQuery.pulse.js by jsoverson</title>
-    
-    <link rel="stylesheet" href="gh-pages/stylesheets/styles.css">
-    <link rel="stylesheet" href="gh-pages/stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-    <script src="http://code.jquery.com/ui/1.8.19/jquery-ui.min.js"></script>
-    <script src="https://raw.github.com/balupton/jquery-syntaxhighlighter/master/scripts/jquery.syntaxhighlighter.min.js"></script>
-    <script src="https://raw.github.com/jsoverson/jquery.pulse.js/master/jquery.pulse.js"></script>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <title>jQuery.pulse.js by jsoverson</title>
 
-    <script type="text/javascript">
-      $(function(){
-        $('.demo').children('.demoTrigger').click(runDemo);
-        $('.showCode').click(showCode);
-        $.SyntaxHighlighter.init();
+  <link rel="stylesheet" href="gh-pages/stylesheets/styles.css">
+  <link rel="stylesheet" href="gh-pages/stylesheets/pygment_trac.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.8.19/jquery-ui.min.js"></script>
+  <script
+    src="https://raw.github.com/balupton/jquery-syntaxhighlighter/master/scripts/jquery.syntaxhighlighter.min.js"></script>
+  <script src="jquery.pulse.js"></script>
 
-      });
+  <script type="text/javascript">
+    $(function () {
+      $('.demo').children('.demoTrigger').click(runDemo);
+      $('.showCode').click(showCode);
+      $.SyntaxHighlighter.init();
 
-      function showCode(evt) {
-        var codeContainer = $(evt.currentTarget).siblings('.codeContainer').slideToggle();
-      }
+    });
 
-      function runDemo(evt) {
-        var trigger = $(evt.currentTarget);
-        var demoCode = trigger.siblings('.codeContainer').children('.demoCode').text();
-        eval(demoCode);
-      }
-    </script>
+    function showCode(evt) {
+      var codeContainer = $(evt.currentTarget).siblings('.codeContainer').slideToggle();
+    }
 
-    <style>
-      .hidden {
-        display:none;
-      }
-      .demo {
-        margin:2em 0;
-      }
-      .description {
-        margin:2em auto;
-        width:60%;
-        font-size:130%;
-      }
+    function runDemo(evt) {
+      var trigger = $(evt.currentTarget);
+      var demoCode = trigger.siblings('.codeContainer').children('.demoCode').text();
+      eval(demoCode);
+    }
+  </script>
 
-    </style>
+  <style>
+    .hidden {
+      display : none;
+    }
 
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>jQuery.pulse.js</h1>
-        <p>jQuery Pulse Animation Plugin</p>
-        <p class="view"><a href="https://github.com/jsoverson/jquery.pulse.js">View the Project on GitHub <small>jsoverson/jquery.pulse.js</small></a></p>
-        <ul>
-          <li><a href="https://github.com/jsoverson/jquery.pulse.js/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/jsoverson/jquery.pulse.js/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/jsoverson/jquery.pulse.js">Fork On <strong>GitHub</strong></a></li>
-        </ul>
-        <div style="text-align:center;margin-top:40px">
-        <a href="https://raw.github.com/jsoverson/jquery.pulse.js/master/jquery.pulse.js" style="font-size:18px;font-weight:bold">Download jquery.pulse.js</a>
-        </div>
-      </header>
-      <section>
-        <h2>jQuery Pulse Animation Plugin</h2>
+    .demo {
+      margin : 2em 0;
+    }
 
-<p>The purpose of this plugin was to make it trivial to add subtle visual cues
-to any web page. JQuery offers plenty in the way of simple effects but this was written
-to automate successive, identical transitions and the return to the original state.</p>
+    .description {
+      margin    : 2em auto;
+      width     : 60%;
+      font-size : 130%;
+    }
 
-<p>This is a very light amount of code and, unless something drastic changes to the core of jQuery.animate,
-it should be future proof for quite some time. It should be as cross browser compatible as jquery is and the
-examples on this page have been tested on multiple browsers, OSes, and devices.</p>
+  </style>
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+<div class="wrapper">
+  <header>
+    <h1>jQuery.pulse.js</h1>
+
+    <p>jQuery Pulse Animation Plugin</p>
+
+    <p class="view"><a href="https://github.com/jsoverson/jquery.pulse.js">View the Project on GitHub
+      <small>jsoverson/jquery.pulse.js</small>
+    </a></p>
+    <ul>
+      <li><a href="https://github.com/jsoverson/jquery.pulse.js/zipball/master">Download <strong>ZIP File</strong></a>
+      </li>
+      <li><a href="https://github.com/jsoverson/jquery.pulse.js/tarball/master">Download <strong>TAR Ball</strong></a>
+      </li>
+      <li><a href="https://github.com/jsoverson/jquery.pulse.js">Fork On <strong>GitHub</strong></a></li>
+    </ul>
+    <div style="text-align:center;margin-top:40px">
+      <a href="https://raw.github.com/jsoverson/jquery.pulse.js/master/jquery.pulse.js"
+         style="font-size:18px;font-weight:bold">Download jquery.pulse.js</a>
+    </div>
+  </header>
+  <section>
+    <h2>jQuery Pulse Animation Plugin</h2>
+
+    <p>The purpose of this plugin was to make it trivial to add subtle visual cues
+      to any web page. JQuery offers plenty in the way of simple effects but this was written
+      to automate successive, identical transitions and the return to the original state.</p>
+
+    <p>This is a very light amount of code and, unless something drastic changes to the core of jQuery.animate,
+      it should be future proof for quite some time. It should be as cross browser compatible as jquery is and the
+      examples on this page have been tested on multiple browsers, OSes, and devices.</p>
 
    <pre class="demoCode highlight language-javascript">
-$('.selector').pulse(
-  {
-    'cssProperty' : 'value'
-  },
-  [duration = 500],
-  [numTimes = 1],
-  [interval = 0]
-);
+$('.selector').pulse(css [,options]);
    </pre>
 
-        <hr>
-        <div id="demo1" class="demo">
-          <p class="demoTarget" style="font-weight:bold">This line of text will pulse red twice quickly</p>
+    <h3>Options</h3>
+    <ul>
+      <li><h4><code>pulses</code> ( default 1 )</h4>
 
-          <button class="demoTrigger">Run Demo</button><button class="showCode">Show Code</button>
-          <div class="codeContainer hidden">
+        <p>The number of full pulses to and from property states. -1 makes the pulse last forever</p></li>
+      <li><h4><code>duration</code> ( default 500 )</h4>
+
+        <p>The full time for a round trip</p></li>
+      <li><h4><code>interval</code> ( default 0 )</h4>
+
+        <p>The interval between two pulses</p></li>
+    </ul>
+
+    <hr>
+    <div id="demo1" class="demo">
+      <p class="demoTarget" style="font-weight:bold">This line of text will pulse red twice quickly</p>
+
+      <button class="demoTrigger">Run Demo</button>
+      <button class="showCode">Show Code</button>
+      <div class="codeContainer hidden">
          <pre class="demoCode highlight language-javascript">
             var properties = {
                color : 'red'
             };
-            var el = $('#demo1 .demoTarget');
-            el.pulse(properties, 500, 2);
-         </pre>
-          </div>
-        </div>
-        <hr>
-        <div id="demo2" class="demo">
-          <p class="demoTarget" style="border:1px solid black;position:relative;width:75%;">This block will widen 3 times a little more quickly</p>
 
-          <button class="demoTrigger">Run Demo</button><button class="showCode">Show Code</button>
-          <div class="codeContainer hidden">
+            var el = $('#demo1 .demoTarget');
+
+            el.pulse(properties, { pulses : 2 });
+         </pre>
+      </div>
+    </div>
+    <hr>
+    <div id="demo2" class="demo">
+      <p class="demoTarget" style="border:1px solid black;position:relative;width:75%;">This block will widen 3 times a
+        little more slowly</p>
+
+      <button class="demoTrigger">Run Demo</button>
+      <button class="showCode">Show Code</button>
+      <div class="codeContainer hidden">
          <pre class="demoCode highlight language-javascript">
             var el = $('#demo2 .demoTarget');
             var originalWidth = el.width();
@@ -117,19 +138,19 @@ $('.selector').pulse(
                width : originalWidth * 1.5
             };
 
-            el.pulse(properties, 1000, 3);
+            el.pulse(properties, {duration : 2000, pulses : 3});
          </pre>
-          </div>
-        </div>
-        <hr>
-        <div id="demo3" class="demo">
-          <p class="demoTarget" style="padding:1px;border:5px solid black">
-            The same property syntax applies for this as it does with jQuery. For example,
-            you can not use css shorthand. You must specify properties individually.
-          </p>
+      </div>
+    </div>
+    <hr>
+    <div id="demo3" class="demo">
+      <p class="demoTarget" style="padding:1px;border:5px solid black">
+        The same property syntax applies for this as it does with jQuery. For example,
+        you can not use css shorthand. You must specify properties individually. </p>
 
-          <button class="demoTrigger">Run Demo</button><button class="showCode">Show Code</button>
-          <div class="codeContainer hidden">
+      <button class="demoTrigger">Run Demo</button>
+      <button class="showCode">Show Code</button>
+      <div class="codeContainer hidden">
          <pre class="demoCode highlight language-javascript">
             var properties = {
                paddingTop:    '10px',
@@ -138,58 +159,67 @@ $('.selector').pulse(
 
             var el = $('#demo3 .demoTarget');
 
-            el.pulse(properties, 1000, 2);
+            el.pulse(properties, {duration : 1000, pulses : 2});
          </pre>
-          </div>
-        </div>
-        <hr>
-        <div id="demo4" class="demo">
-          <p class="demoTarget" style="padding:5px;border:1px solid #black;color:white;background-color:black;font-weight:bold;">
-            You can use the interval argument to specify a duration in between the animations. Now breathe deeply!
-          </p>
+      </div>
+    </div>
+    <hr>
+    <div id="demo4" class="demo">
+      <p class="demoTarget"
+         style="padding:5px;border:1px solid #black;color:white;background-color:black;font-weight:bold;">
+        You can use the interval argument to specify a duration in between the animations. Now breathe deeply! </p>
 
-          <button class="demoTrigger">Run Demo</button><button class="showCode">Show Code</button>
-          <div class="codeContainer hidden">
+      <button class="demoTrigger">Run Demo</button>
+      <button class="showCode">Show Code</button>
+      <div class="codeContainer hidden">
          <pre class="demoCode highlight language-javascript">
-            var properties = {
-               backgroundColor : '#ddd'
-            };
+var properties = {
+   backgroundColor : '#ddd'
+};
 
-            var el = $('#demo4 .demoTarget');
+var el = $('#demo4 .demoTarget');
 
-            el.pulse(properties, 3250, 5, 800);
+el.pulse(properties, {
+  duration : 3250,
+  pulses   : 5,
+  interval : 800
+});
          </pre>
-          </div>
-        </div>
-        <hr>
-        <div id="demo5" class="demo">
-          <p class="demoTarget">You can pulse anything jQuery already lets you animate, or much more if you also use jQueryUI!</p>
+      </div>
+    </div>
+    <hr>
+    <div id="demo5" class="demo">
+      <p class="demoTarget">You can pulse anything jQuery already lets you animate, or much more if you also use
+        jQueryUI!</p>
 
-          <button class="demoTrigger">Run Demo</button><button class="showCode">Show Code</button>
-          <div class="codeContainer hidden">
+      <button class="demoTrigger">Run Demo</button>
+      <button class="showCode">Show Code</button>
+      <div class="codeContainer hidden">
          <pre class="demoCode highlight language-javascript">
-            var properties = {
-               width: "70%",
-               opacity: 0.4,
-               marginLeft: "0.6in",
-               fontSize: "3em",
-               color: "blue",
-               backgroundColor: "#666"
-            };
+var properties = {
+   width: "70%",
+   opacity: 0.4,
+   marginLeft: "0.6in",
+   fontSize: "3em",
+   color: "blue",
+   backgroundColor: "#666"
+};
 
-            var el = $('#demo5 .demoTarget');
+var el = $('#demo5 .demoTarget');
 
-            el.pulse(properties, 1000, 2);
+el.pulse(properties, {duration : 1000, pulses: 2});
          </pre>
-          </div>
-        </div>
-        <hr>
+      </div>
+    </div>
+    <hr>
 
-        <div id="demo6" class="demo">
-          <p class="demoTarget">It also <span>respects</span> jQuery's concept of <span>chaining</span> and operating <span>on multiple elements</span>. (Subsequent chains, though, execute immediately)</p>
+    <div id="demo6" class="demo">
+      <p class="demoTarget">It also <span>respects</span> jQuery's concept of <span>chaining</span> and operating <span>on multiple elements</span>.
+        (Subsequent chains, though, execute immediately)</p>
 
-          <button class="demoTrigger">Run Demo</button><button class="showCode">Show Code</button>
-          <div class="codeContainer hidden">
+      <button class="demoTrigger">Run Demo</button>
+      <button class="showCode">Show Code</button>
+      <div class="codeContainer hidden">
          <pre class="demoCode highlight language-javascript">
 var properties = {
    color: "#aa00aa",
@@ -198,58 +228,84 @@ var properties = {
 
 var els = $('#demo6 .demoTarget span');
 
-els.pulse(properties, 1250, 2);
+els.pulse(properties, {duration : 1250, pulses : 2});
          </pre>
-          </div>
-        </div>
-
-
-        <h2>License</h2>
-        <div id="license">
-          <p>Copyright (c) 2012, Jarrod Overson
-            All rights reserved.</p>
-
-          <p>Redistribution and use in source and binary forms, with or without
-            modification, are permitted provided that the following conditions are met:
-            <ul>
-              <li>Redistributions of source code must retain the above copyright
-                notice, this list of conditions and the following disclaimer.</li>
-              <li>Redistributions in binary form must reproduce the above copyright
-                notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</li>
-              <li>The names of its contributors may not be used to endorse or promote products
-                derived from this software without specific prior written permission.</li>
-            </ul>
-          </p>
-
-          <p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-            ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-            WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-            DISCLAIMED. IN NO EVENT SHALL JARROD OVERSON BE LIABLE FOR ANY
-            DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-            (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-            LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
-            ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-            (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-            SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
-        </div>
-
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/jsoverson">jsoverson</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
+      </div>
     </div>
-    <script src="gh-pages/javascripts/scale.fix.js"></script>
-              <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-22728809-1");
-            pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
 
-  </body>
+    <div id="demo7" class="demo">
+      <p class="demoTarget">This will pulse blue forever. There's no support for stopping (yet?), and subsequent runs of pulse with the same properties will collide and produce unexpected (but often neat) results.</p>
+
+      <button class="demoTrigger">Run Demo</button>
+      <button class="showCode">Show Code</button>
+      <div class="codeContainer hidden">
+         <pre class="demoCode highlight language-javascript">
+var properties = {
+   color: "blue"
+};
+
+var els = $('#demo7 .demoTarget');
+
+els.pulse(properties, {pulses : -1});
+         </pre>
+      </div>
+    </div>
+
+
+    <h2>License</h2>
+
+    <div id="license">
+      <p>Copyright (c) 2012, Jarrod Overson
+        All rights reserved.</p>
+
+      <p>Redistribution and use in source and binary forms, with or without
+        modification, are permitted provided that the following conditions are met:
+      <ul>
+        <li>Redistributions of source code must retain the above copyright
+          notice, this list of conditions and the following disclaimer.
+        </li>
+        <li>Redistributions in binary form must reproduce the above copyright
+          notice, this list of conditions and the following disclaimer in the documentation and/or other materials
+          provided with the distribution.
+        </li>
+        <li>The names of its contributors may not be used to endorse or promote products
+          derived from this software without specific prior written permission.
+        </li>
+      </ul>
+      </p>
+
+      <p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+        ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+        WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+        DISCLAIMED. IN NO EVENT SHALL JARROD OVERSON BE LIABLE FOR ANY
+        DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+        (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+        LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+        ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+        (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+        SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+    </div>
+
+  </section>
+  <footer>
+    <p>This project is maintained by <a href="https://github.com/jsoverson">jsoverson</a></p>
+
+    <p>
+      <small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small>
+    </p>
+  </footer>
+</div>
+<script src="gh-pages/javascripts/scale.fix.js"></script>
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    var pageTracker = _gat._getTracker("UA-22728809-1");
+    pageTracker._trackPageview();
+  } catch (err) {}
+</script>
+
+</body>
 </html>
