@@ -4,8 +4,7 @@
 ;(function ( $, window, document, undefined ) {
   "use strict";
 
-  var pluginName = 'pulse',
-    defaults = {
+  var defaults = {
       pulses   : 1,
       interval : 0,
       returnDelay : 0,
