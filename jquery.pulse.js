@@ -8,6 +8,7 @@
     defaults = {
       pulses   : 1,
       interval : 0,
+      returnDelay : 0,
       duration : 500
     };
 
@@ -19,9 +20,10 @@
 
     options = $.extend({}, defaults, options);
 
-    if (!(options.interval >= 0)) options.interval = 0;
-    if (!(options.duration >= 0)) options.duration = 500;
-    if (!(options.pulses >= -1))  options.pulses = 1;
+    if (!(options.interval >= 0))    options.interval = 0;
+    if (!(options.returnDelay >= 0)) options.returnDelay = 0;
+    if (!(options.duration >= 0))    options.duration = 500;
+    if (!(options.pulses >= -1))     options.pulses = 1;
     if (typeof callback !== 'function') callback = function(){};
 
     return this.each(function () {
@@ -43,12 +45,14 @@
           {
             duration : options.duration / 2,
             complete : function(){
-              el.animate(original, {
-                duration : options.duration / 2,
-                complete : function() {
-                  window.setTimeout(animate, options.interval);
-                }
-              });
+              window.setTimeout(function(){
+                el.animate(original, {
+                  duration : options.duration / 2,
+                  complete : function() {
+                    window.setTimeout(animate, options.interval);
+                  }
+                });
+              },options.returnDelay);
             }
           }
         );

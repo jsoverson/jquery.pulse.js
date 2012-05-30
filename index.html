@@ -88,7 +88,7 @@
       examples on this page have been tested on multiple browsers, OSes, and devices.</p>
 
    <pre class="demoCode highlight language-javascript">
-$('.selector').pulse(css [,options]);
+$('.selector').pulse(css [, options] [, callback]);
    </pre>
 
     <h3>Options</h3>
@@ -102,6 +102,9 @@ $('.selector').pulse(css [,options]);
       <li><h4><code>interval</code> ( default 0 )</h4>
 
         <p>The interval between two pulses</p></li>
+      <li><h4><code>returnDelay</code> ( default 0 )</h4>
+
+        <p>The delay before issuing the return animation</p></li>
     </ul>
 
     <hr>
@@ -270,10 +273,35 @@ function toYellow() {
 function toGreen() {
   this.pulse({ color : 'green'})
 }
-           
+
 var el = $('#demo8 .target');
 
 el.pulse({ color : 'red' }, toBlue);
+         </pre>
+      </div>
+    </div>
+
+    <div id="demo9" class="demo">
+      <p class="target" style=''>This shows the use of the return delay. The background color will pulse between white and purple with 1s delays between all animations</p>
+
+      <button class="demoTrigger">Run Demo</button>
+      <button class="showCode">Show Code</button>
+      <div class="codeContainer hidden">
+         <pre class="demoCode highlight language-javascript">
+
+var el = $('#demo9 .target');
+
+el.pulse(
+  {
+    backgroundColor : 'purple',
+    color           : 'white'
+  },
+  {
+    returnDelay : 1000,
+    interval    : 1000,
+    pulses      : 3
+  }
+);
          </pre>
       </div>
     </div>
