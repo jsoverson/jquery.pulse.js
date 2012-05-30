@@ -106,7 +106,7 @@ $('.selector').pulse(css [,options]);
 
     <hr>
     <div id="demo1" class="demo">
-      <p class="demoTarget" style="font-weight:bold">This line of text will pulse red twice quickly</p>
+      <p class="target" style="font-weight:bold">This line of text will pulse red twice quickly</p>
 
       <button class="demoTrigger">Run Demo</button>
       <button class="showCode">Show Code</button>
@@ -116,7 +116,7 @@ $('.selector').pulse(css [,options]);
                color : 'red'
             };
 
-            var el = $('#demo1 .demoTarget');
+            var el = $('#demo1 .target');
 
             el.pulse(properties, { pulses : 2 });
          </pre>
@@ -124,14 +124,14 @@ $('.selector').pulse(css [,options]);
     </div>
     <hr>
     <div id="demo2" class="demo">
-      <p class="demoTarget" style="border:1px solid black;position:relative;width:75%;">This block will widen 3 times a
+      <p class="target" style="border:1px solid black;position:relative;width:75%;">This block will widen 3 times a
         little more slowly</p>
 
       <button class="demoTrigger">Run Demo</button>
       <button class="showCode">Show Code</button>
       <div class="codeContainer hidden">
          <pre class="demoCode highlight language-javascript">
-            var el = $('#demo2 .demoTarget');
+            var el = $('#demo2 .target');
             var originalWidth = el.width();
 
             var properties = {
@@ -144,7 +144,7 @@ $('.selector').pulse(css [,options]);
     </div>
     <hr>
     <div id="demo3" class="demo">
-      <p class="demoTarget" style="padding:1px;border:5px solid black">
+      <p class="target" style="padding:1px;border:5px solid black">
         The same property syntax applies for this as it does with jQuery. For example,
         you can not use css shorthand. You must specify properties individually. </p>
 
@@ -157,7 +157,7 @@ $('.selector').pulse(css [,options]);
                paddingBottom: '10px'
             };
 
-            var el = $('#demo3 .demoTarget');
+            var el = $('#demo3 .target');
 
             el.pulse(properties, {duration : 1000, pulses : 2});
          </pre>
@@ -165,7 +165,7 @@ $('.selector').pulse(css [,options]);
     </div>
     <hr>
     <div id="demo4" class="demo">
-      <p class="demoTarget"
+      <p class="target"
          style="padding:5px;border:1px solid #black;color:white;background-color:black;font-weight:bold;">
         You can use the interval argument to specify a duration in between the animations. Now breathe deeply! </p>
 
@@ -177,7 +177,7 @@ var properties = {
    backgroundColor : '#ddd'
 };
 
-var el = $('#demo4 .demoTarget');
+var el = $('#demo4 .target');
 
 el.pulse(properties, {
   duration : 3250,
@@ -189,7 +189,7 @@ el.pulse(properties, {
     </div>
     <hr>
     <div id="demo5" class="demo">
-      <p class="demoTarget">You can pulse anything jQuery already lets you animate, or much more if you also use
+      <p class="target">You can pulse anything jQuery already lets you animate, or much more if you also use
         jQueryUI!</p>
 
       <button class="demoTrigger">Run Demo</button>
@@ -205,7 +205,7 @@ var properties = {
    backgroundColor: "#666"
 };
 
-var el = $('#demo5 .demoTarget');
+var el = $('#demo5 .target');
 
 el.pulse(properties, {duration : 1000, pulses: 2});
          </pre>
@@ -214,7 +214,7 @@ el.pulse(properties, {duration : 1000, pulses: 2});
     <hr>
 
     <div id="demo6" class="demo">
-      <p class="demoTarget">It also <span>respects</span> jQuery's concept of <span>chaining</span> and operating <span>on multiple elements</span>.
+      <p class="target">It also <span>respects</span> jQuery's concept of <span>chaining</span> and operating <span>on multiple elements</span>.
         (Subsequent chains, though, execute immediately)</p>
 
       <button class="demoTrigger">Run Demo</button>
@@ -226,7 +226,7 @@ var properties = {
    fontSize: "200%"
 };
 
-var els = $('#demo6 .demoTarget span');
+var els = $('#demo6 .target span');
 
 els.pulse(properties, {duration : 1250, pulses : 2});
          </pre>
@@ -234,7 +234,7 @@ els.pulse(properties, {duration : 1250, pulses : 2});
     </div>
 
     <div id="demo7" class="demo">
-      <p class="demoTarget">This will pulse blue forever. There's no support for stopping (yet?), and subsequent runs of pulse with the same properties will collide and produce unexpected (but often neat) results.</p>
+      <p class="target">This will pulse blue forever. There's no support for stopping (yet?), and subsequent runs of pulse with the same properties will collide and produce unexpected (but often neat) results.</p>
 
       <button class="demoTrigger">Run Demo</button>
       <button class="showCode">Show Code</button>
@@ -244,13 +244,39 @@ var properties = {
    color: "blue"
 };
 
-var els = $('#demo7 .demoTarget');
+var el = $('#demo7 .target');
 
-els.pulse(properties, {pulses : -1});
+el.pulse(properties, {pulses : -1});
          </pre>
       </div>
     </div>
 
+    <div id="demo8" class="demo">
+      <p class="target" style='font-weight:bold'>This example uses the callback to chain successive pulses.</p>
+
+      <button class="demoTrigger">Run Demo</button>
+      <button class="showCode">Show Code</button>
+      <div class="codeContainer hidden">
+         <pre class="demoCode highlight language-javascript">
+
+function toBlue() {
+  this.pulse({ color : 'blue' }, toYellow)
+}
+
+function toYellow() {
+  this.pulse({ color : 'yellow'}, toGreen)
+}
+
+function toGreen() {
+  this.pulse({ color : 'green'})
+}
+           
+var el = $('#demo8 .target');
+
+el.pulse({ color : 'red' }, toBlue);
+         </pre>
+      </div>
+    </div>
 
     <h2>License</h2>
 

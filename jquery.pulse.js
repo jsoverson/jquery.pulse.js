@@ -12,11 +12,17 @@
     };
 
   $.fn.pulse = function(properties, options, callback) {
+    if (typeof options === 'function') {
+      callback = options;
+      options = {};
+    }
+
     options = $.extend({}, defaults, options);
 
     if (!(options.interval >= 0)) options.interval = 0;
     if (!(options.duration >= 0)) options.duration = 500;
-    if (!(options.pulses >= -1))   options.pulses = 1;
+    if (!(options.pulses >= -1))  options.pulses = 1;
+    if (typeof callback !== 'function') callback = function(){};
 
     return this.each(function () {
       var el = $(this),
@@ -31,7 +37,7 @@
       var timesPulsed = 0;
 
       function animate() {
-        if (options.pulses > -1 && ++timesPulsed > options.pulses) return;
+        if (options.pulses > -1 && ++timesPulsed > options.pulses) return callback.apply(el);
         el.animate(
           properties,
           {
