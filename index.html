@@ -95,6 +95,12 @@
 $('.selector').pulse(css [, options] [, callback]);
    </pre>
 
+    <p>To stop any given pulse, issue a 'destroy' command on a pulsing element</p>
+
+   <pre class="demoCode highlight language-javascript">
+$('.selector').pulse('destroy');
+   </pre>
+
     <h3>Options</h3>
     <ul>
       <li><h4><code>pulses</code> ( default 1 )</h4>
@@ -241,7 +247,7 @@ els.pulse(properties, {duration : 1250, pulses : 2});
     </div>
 
     <div id="demo7" class="demo">
-      <p class="target">This will pulse blue forever. There's no support for stopping (yet?), and subsequent runs of pulse with the same properties will collide and produce unexpected (but often neat) results.</p>
+      <p class="target">This will pulse blue until 'destroy' is called (10 seconds). Subsequent runs of pulse with the same properties will collide and produce unexpected (but often neat) results.</p>
 
       <button class="demoTrigger">Run Demo</button>
       <button class="showCode">Show Code</button>
@@ -254,6 +260,10 @@ var properties = {
 var el = $('#demo7 .target');
 
 el.pulse(properties, {pulses : -1});
+
+setTimeout(function(){
+  el.pulse('destroy');
+},10000);
          </pre>
       </div>
     </div>

@@ -1,7 +1,7 @@
 /*global jQuery*/
 /*jshint curly:false*/
 
-;(function ( $, window, document, undefined ) {
+;(function ( $, window) {
   "use strict";
 
   var defaults = {
@@ -12,6 +12,9 @@
     };
 
   $.fn.pulse = function(properties, options, callback) {
+    // $(...).pulse('destroy');
+    var stop = properties === 'destroy';
+
     if (typeof options === 'function') {
       callback = options;
       options = {};
@@ -28,8 +31,11 @@
     return this.each(function () {
       var el = $(this),
           property,
-          original = {}
-        ;
+          original = {};
+
+      var data = el.data('pulse') || {};
+      data.stop = stop;
+      el.data('pulse', data);
 
       for (property in properties) {
         if (properties.hasOwnProperty(property)) original[property] = el.css(property);
@@ -38,6 +44,7 @@
       var timesPulsed = 0;
 
       function animate() {
+        if (el.data('pulse').stop) return;
         if (options.pulses > -1 && ++timesPulsed > options.pulses) return callback.apply(el);
         el.animate(
           properties,
