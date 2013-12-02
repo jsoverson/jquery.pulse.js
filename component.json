@@ -1,9 +1,0 @@
-{
-  "name": "jquery-pulse",
-  "version": "1.0.0",
-  "main":"jquery.pulse.js",
-  "dependencies": {
-    "jquery": "~1.7.2"
-  }
-}
-
