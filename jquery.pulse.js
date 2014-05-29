@@ -43,25 +43,27 @@
 
       var timesPulsed = 0;
 
+      var fromOptions = $.extend({}, options);
+      fromOptions.duration = options.duration / 2;
+      fromOptions.complete = function() {
+        window.setTimeout(animate, options.interval);
+      };
+
+      var toOptions = $.extend({}, options);
+      toOptions.duration = options.duration / 2;
+      toOptions.complete = function(){
+        window.setTimeout(function(){
+          el.animate(original, fromOptions);
+        },options.returnDelay);
+      };
+
       function animate() {
         if (typeof el.data('pulse') === 'undefined') return;
         if (el.data('pulse').stop) return;
         if (options.pulses > -1 && ++timesPulsed > options.pulses) return callback.apply(el);
         el.animate(
           properties,
-          {
-            duration : options.duration / 2,
-            complete : function(){
-              window.setTimeout(function(){
-                el.animate(original, {
-                  duration : options.duration / 2,
-                  complete : function() {
-                    window.setTimeout(animate, options.interval);
-                  }
-                });
-              },options.returnDelay);
-            }
-          }
+          toOptions
         );
       }
 
